@@ -1,13 +1,13 @@
-FROM php:8.4-fpm-alpine
+FROM php:8.4-apache
 
-# Install ekstensi MySQL yang dibutuhkan PHP
+# Install ekstensi MySQL
 RUN docker-php-ext-install pdo pdo_mysql
 
-# Set working directory di dalam kontainer
-WORKDIR /var/www/html
+# Aktifkan modul mod_rewrite (berguna untuk framework PHP/routing)
+RUN a2enmod rewrite
 
-# Salin seluruh kode proyek ke dalam kontainer
+WORKDIR /var/www/html
 COPY . .
 
-# Set hak akses (opsional, menyesuaikan kebutuhan framework)
+# Pastikan Apache bisa baca file kita
 RUN chown -R www-data:www-data /var/www/html
