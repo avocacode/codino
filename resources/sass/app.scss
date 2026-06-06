@@ -1,0 +1,130 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@300..900&display=swap');
+
+// Variables Custom
+$primary: #6366f1; // Indigo/Violet
+$secondary: #ff7a59; // Coral/Orange
+$success: #10b981; // Emerald
+$info: #0ea5e9; // Sky Blue
+$warning: #f59e0b; // Amber
+$danger: #ef4444; // Rose
+$body-bg: #f8fafc;
+$font-family-sans-serif: 'Outfit', sans-serif;
+$font-size-base: 0.95rem;
+
+// Typography custom for kids feel
+$font-family-playful: 'Fredoka', sans-serif;
+
+@import 'bootstrap/scss/bootstrap';
+
+// Custom playful additions
+body {
+    background-color: #f4f6fa;
+    color: #334155;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.font-playful {
+    font-family: $font-family-playful;
+    font-weight: 400;
+}
+
+// Custom Glassmorphism Cards
+.card-playful {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.05);
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(99, 102, 241, 0.12);
+    }
+}
+
+.btn-playful-primary {
+    background-color: $primary;
+    color: white;
+    font-family: $font-family-playful;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 500;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: darken($primary, 8%);
+        color: white;
+        transform: scale(1.03);
+    }
+}
+
+.btn-playful-secondary {
+    background-color: $secondary;
+    color: white;
+    font-family: $font-family-playful;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    font-weight: 500;
+    box-shadow: 0 4px 14px rgba(255, 122, 89, 0.3);
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: darken($secondary, 8%);
+        color: white;
+        transform: scale(1.03);
+    }
+}
+
+.badge-age {
+    background-color: rgba(14, 165, 233, 0.1);
+    color: $info;
+    font-family: $font-family-playful;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge-price {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: $success;
+    font-family: $font-family-playful;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+// Hero Area
+.hero-section {
+    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, rgba(14, 165, 233, 0.02) 90%);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 80px 0;
+}
+
+// Custom Nav
+.navbar-custom {
+    background-color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+
+    .navbar-brand {
+        font-size: 1.6rem;
+        color: $primary !important;
+
+        span {
+            color: $secondary;
+        }
+    }
+}
