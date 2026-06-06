@@ -1,32 +1,40 @@
-version: '3.8'
-
 services:
-  # Aplikasi PHP & Web Server jadi satu di sini
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: codino_app
-    restart: always
+    restart: unless-stopped
+
     ports:
-      - "8010:80" # Port 8010 Ubuntu diteruskan ke Port 80 di dalam Docker
+      - "8010:80"
+
     volumes:
       - .:/var/www/html
+
+    depends_on:
+      - db
+
     networks:
       - codino_network
 
-  # Database MySQL
   db:
     image: mysql:8.0
     container_name: codino_db
-    restart: always
+    restart: unless-stopped
+
     ports:
-      - "3310:3306" # Port 3310 Ubuntu diteruskan ke Port 3306 di dalam Docker
+      - "3310:3306"
+
     environment:
       MYSQL_DATABASE: codino_db
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_USER: codino_user
       MYSQL_PASSWORD: userpassword
+
     volumes:
       - mysql_data:/var/lib/mysql
+
     networks:
       - codino_network
 
